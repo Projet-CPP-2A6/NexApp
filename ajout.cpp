@@ -1,4 +1,4 @@
-#include "ajout.h"
+#include "ajoute.h"
 #include "ui_ajout.h"
 #include <QMessageBox>
 #include "partenaire.h"
