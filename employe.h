@@ -6,6 +6,8 @@
 #include <QStandardItemModel>
 #include <QtSql>
 
+
+
 class Employe
 {
     int CIN = 0;

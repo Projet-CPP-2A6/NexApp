@@ -1,6 +1,7 @@
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "email.h"
 #include "employe.h"
 #include "connection.h"
 #include <QFileDialog>
@@ -20,6 +21,7 @@
 
 #include <QtCore>
 #include <QTextStream>
+
 
 
 QT_BEGIN_NAMESPACE
@@ -51,8 +53,11 @@ private slots:
     void on_pdf_clicked();
     void on_ajout2_clicked();
     void on_tri_clicked();
-    void sendWelcomeEmail(QString emailClient);
+    void on_refresh_clicked();
+    void on_envoyer_email_clicked();
 private:
+    void sendConfirmationEmail(const QString &recipient, const QString &eventName, const QString &eventDescription, const QString &eventLocation, const QString &eventDate);
+    void emailStatus(const QString &status);
     int selectedCIN;
     Ui::MainWindow *ui;
     Employe* e;

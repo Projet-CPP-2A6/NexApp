@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     selectedCIN = -1;
+
     connect(ui->tableView, &QAbstractItemView::clicked, this, &MainWindow::handleItemClicked);
     connect(ui->search, &QLineEdit::textChanged, this, &MainWindow::recherchecin);
 }
@@ -22,40 +23,6 @@ void MainWindow::handleItemClicked(const QModelIndex &index)
 }
 
 
-void MainWindow::sendWelcomeEmail(QString emailClient) {
-    QSslSocket *socket = new QSslSocket(this);
-    socket->connectToHostEncrypted("smtp.example.com", 465);
-    if (!socket->waitForConnected()) {
-        qDebug() << "Error: " << socket->errorString();
-        return;
-    }
-    QTextStream stream(socket);
-    stream << "EHLO localhost\r\n";
-    stream << "AUTH LOGIN\r\n";
-    stream << QByteArray().append("benhalimanur@gmail.com").toBase64() << "\r\n"; // Replace with your email
-    stream << QByteArray().append("rstl vaag holr sbpy").toBase64() << "\r\n"; // Replace with your password
-    stream << "MAIL FROM: <benhalimanur@gmail.com>\r\n";
-    stream << "RCPT TO: <" << emailClient.toUtf8() << ">\r\n";
-    stream << "DATA\r\n";
-    stream << "From: Your Name <benhalimanur@gmail.com>\r\n";
-    stream << "To: " << emailClient.toUtf8() << "\r\n";
-    stream << "Subject: Welcome to Our Service!\r\n";
-    stream << "\r\n";
-    stream << "Dear Client,\r\n";
-    stream << "\r\n";
-    stream << "Welcome to our service! We are excited to have you on board.\r\n";
-    stream << "\r\n";
-    stream << "Please let us know if you have any questions or need assistance.\r\n";
-    stream << "\r\n";
-    stream << "Best regards,\r\n";
-    stream << "Your Team\r\n";
-    stream << ".\r\n";
-    stream << "QUIT\r\n";
-    socket->waitForBytesWritten();
-    socket->waitForReadyRead();
-    qDebug() << "Email sent!";
-    socket->close();
-}
 void MainWindow::on_pdf_clicked()
 {
 
@@ -86,12 +53,7 @@ void MainWindow::on_pdf_clicked()
         int y = 100;
         int cw = 100;
         int rowHeight = 20;
-        QStringList h; // Ensure that this list is populated with your table headers
-        for (int i = 0; i < h.size(); ++i) {
-            painter.drawText(x + i * cw, y, h.at(i));
-        }
-
-        // Draw table data
+        QStringList h;
         int nl = ui->tableView->model()->rowCount();
         int nc = ui->tableView->model()->columnCount();
         for (int i = 0; i < nl; ++i) {
@@ -108,7 +70,7 @@ void MainWindow::on_pdf_clicked()
 }
 
 void MainWindow::history(int userID, bool userAdded) {
-    QFile file("C:/Users/MSI/Desktop/history.txt");
+    QFile file("C:/Users/Sarwir/Bureau/history.txt");
     if (!file.open(QIODevice::Append | QIODevice::Text)) {
         qDebug() << "Failed to open file for writing:" << file.errorString();
         return;
@@ -131,6 +93,7 @@ void MainWindow::chart_render() {
         qDebug() << "Error executing query:" << query.lastError().text();
         return;
     }
+    int total = 0;
     int number1 = 0; // 600-1000
     int number2 = 0; // 1000-3000
     int number3 = 0; // above 3000
@@ -142,11 +105,17 @@ void MainWindow::chart_render() {
             number2++;
         else if (salaire > 3000)
             number3++;
+        total++;
     }
     QPieSeries *series = new QPieSeries();
     series->append("600-1000", number1);
     series->append("1000-3000", number2);
-    series->append("sur3000", number3);
+    series->append("sup3000", number3);
+
+    // Calculate percentages
+    qreal percent1 = (qreal)number1 / total * 100;
+    qreal percent2 = (qreal)number2 / total * 100;
+    qreal percent3 = (qreal)number3 / total * 100;
 
     QChart *chart = new QChart();
     chart->addSeries(series);
@@ -154,6 +123,18 @@ void MainWindow::chart_render() {
     chart->legend()->setVisible(true);
     chart->legend()->setFont(QFont("MS Shell Dig2", 7));
     chart->setBackgroundBrush(QColor("#FFFFFF"));
+
+    // Create custom label for displaying percentage
+    QString label1 = QString(" %1%").arg(percent1, 0, 'f', 2);
+    QString label2 = QString(" %1%").arg(percent2, 0, 'f', 2);
+    QString label3 = QString(" %1%").arg(percent3, 0, 'f', 2);
+
+    series->setLabelsVisible(true);
+    series->setLabelsPosition(QPieSlice::LabelOutside);
+    series->slices().at(0)->setLabel(label1);
+    series->slices().at(1)->setLabel(label2);
+    series->slices().at(2)->setLabel(label3);
+
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
 
@@ -173,17 +154,18 @@ void MainWindow::chart_render() {
     layout->addWidget(chartView);
 }
 
-void MainWindow::clear_chart_widget(){
+
+void MainWindow::clear_chart_widget() {
     QLayout *donutLayout = ui->donut->layout();
     if (donutLayout) {
         QLayoutItem *item;
         while ((item = donutLayout->takeAt(0)) != nullptr) {
-            QWidget *widget = item->widget();
-            if (widget) {
+            if (QWidget *widget = item->widget()) {
                 delete widget;
             }
             delete item;
         }
+        delete donutLayout;
     }
 }
 void MainWindow::on_modifier_clicked()
@@ -246,6 +228,10 @@ void MainWindow::on_modifiernour_clicked()
 void MainWindow::on_ajout2_clicked(){
      ui->tabWidget->setCurrentIndex(0);
 }
+void MainWindow::on_envoyer_email_clicked() {
+    mailer::sendEmail(ui->destinataireEmail->text(), ui->objetEmail->text(),
+                      ui->bodyEmail->text());
+}
 void MainWindow:: on_ajouter_clicked()
 {
 
@@ -263,7 +249,6 @@ void MainWindow:: on_ajouter_clicked()
         ui->cin->clear();
         ui->nom->clear();
         ui->prenom->clear();
-        sendWelcomeEmail(email);
         ui->email->clear();
         ui->salaire->clear();
         ui->de->clearMask();
@@ -285,6 +270,12 @@ void MainWindow::on_tabWidget_currentChanged(int index)
 void MainWindow::on_tableView_clicked(const QModelIndex &index) {
     int row = index.row();
     selectedCIN = ui->tableView->model()->index(row, 4).data().toInt();
+}
+void MainWindow::on_refresh_clicked(){
+
+    chart_render();
+    ui->tabWidget->setCurrentIndex(2);
+    ui->tableView->setModel(e->afficher());
 }
 
 void MainWindow::on_supprimer_clicked() {

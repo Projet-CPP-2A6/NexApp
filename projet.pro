@@ -12,12 +12,14 @@ CONFIG += c++17
 
 SOURCES += \
     connection.cpp \
+    email.cpp \
     employe.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     connection.h \
+    email.h \
     employe.h \
     mainwindow.h
 
