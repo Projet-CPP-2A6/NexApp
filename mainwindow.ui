@@ -556,9 +556,9 @@ font: 700 12pt &quot;Tw Cen MT&quot;;</string>
       <widget class="QLineEdit" name="lineEdit_2">
        <property name="geometry">
         <rect>
-         <x>70</x>
+         <x>50</x>
          <y>40</y>
-         <width>381</width>
+         <width>461</width>
          <height>24</height>
         </rect>
        </property>
@@ -581,7 +581,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>180</x>
-         <y>340</y>
+         <y>360</y>
          <width>91</width>
          <height>21</height>
         </rect>
@@ -953,9 +953,9 @@ background-color: rgb(255, 255, 255);</string>
        <widget class="QLineEdit" name="lineEdit_6">
         <property name="geometry">
          <rect>
-          <x>180</x>
+          <x>100</x>
           <y>40</y>
-          <width>281</width>
+          <width>361</width>
           <height>24</height>
          </rect>
         </property>
@@ -1274,7 +1274,7 @@ background-color: rgb(255, 255, 255);</string>
         <x>0</x>
         <y>0</y>
         <width>621</width>
-        <height>381</height>
+        <height>451</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1283,9 +1283,9 @@ background-color: rgb(255, 255, 255);</string>
       <widget class="QLineEdit" name="lineEdit_4">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>50</x>
          <y>20</y>
-         <width>241</width>
+         <width>311</width>
          <height>24</height>
         </rect>
        </property>
@@ -1306,7 +1306,7 @@ color: rgb(0, 0, 0);
          <x>10</x>
          <y>100</y>
          <width>531</width>
-         <height>261</height>
+         <height>121</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -1321,7 +1321,7 @@ font: 600 10pt &quot;Yu Gothic UI Semibold&quot;;
 </string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_AJOUTER">
+      <widget class="QPushButton" name="ajout2">
        <property name="geometry">
         <rect>
          <x>280</x>
@@ -1413,6 +1413,92 @@ font: 600 10pt &quot;Yu Gothic UI Semibold&quot;;
         <string>Recherche par CIN</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="pdf">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>30</y>
+         <width>80</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">	
+color: rgb(29, 29, 29);
+background-color: rgb(117, 117, 255);
+border-color: rgb(117, 117, 255);
+	border-radius:10px ; 
+	font-size:13px ; 
+font: 600 10pt &quot;Yu Gothic UI Semibold&quot;;
+</string>
+       </property>
+       <property name="text">
+        <string>PDF</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="tri">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>30</y>
+         <width>80</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">	
+color: rgb(29, 29, 29);
+background-color: rgb(117, 117, 255);
+border-color: rgb(117, 117, 255);
+	border-radius:10px ; 
+	font-size:13px ; 
+font: 600 10pt &quot;Yu Gothic UI Semibold&quot;;
+</string>
+       </property>
+       <property name="text">
+        <string>Tri</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="donut" native="true">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>230</y>
+         <width>371</width>
+         <height>211</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+
+
+color: rgb(29, 29, 29);
+border-color: rgb(117, 117, 255);
+	border-radius:10px ; 
+	font-size:13px ; 
+font: 600 10pt &quot;Yu Gothic UI Semibold&quot;;
+</string>
+       </property>
+       <widget class="QWidget" name="horizontalLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>9</x>
+          <y>9</y>
+          <width>351</width>
+          <height>191</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="username">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
      </widget>
     </widget>
    </widget>
@@ -1423,7 +1509,7 @@ font: 600 10pt &quot;Yu Gothic UI Semibold&quot;;
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
