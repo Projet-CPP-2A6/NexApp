@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "aminee.h"
 #include "nour.h"
+#include "chrif.h"
+
 #include"interface.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -28,4 +31,20 @@ void MainWindow::on_pushButton_3_clicked()
     n.exec();
 
 }
+
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    aminee a;
+    a.exec();
+}
+
+
+void MainWindow::on_pushButton_10_clicked()
+{
+    chrif c;
+    c.exec();
+}
+
+
 

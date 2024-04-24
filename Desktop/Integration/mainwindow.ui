@@ -132,7 +132,7 @@ color: rgb(59, 85, 109);
 </string>
      </property>
      <property name="text">
-      <string>Gestion des contrats</string>
+      <string>Gestion des contstats</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_6">

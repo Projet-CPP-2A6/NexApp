@@ -135,7 +135,7 @@ bool Partenaire::modifierContrat(const QString& matriculeFiscale, const QString&
         return true;
     }
 }
-QSqlQueryModel* Partenaire::TriPar(QString nomEntreprise)
+/*QSqlQueryModel* Partenaire::TriPar(QString nomEntreprise)
 {
     QSqlQueryModel* model = new QSqlQueryModel();
     QSqlQuery query;
@@ -163,7 +163,41 @@ QSqlQueryModel* Partenaire::TriPar(QString nomEntreprise)
     model->setQuery(query);
 
     return model;
+}*/
+
+QSqlQueryModel* Partenaire::TriPar(QString nomEntreprise, bool ordreCroissant)
+{
+    QSqlQueryModel* model = new QSqlQueryModel();
+    QSqlQuery query;
+
+    // Vérification du critère de tri
+    QString orderByClause;
+    if (nomEntreprise == "NOM_ENTREPRISE") {
+        if (ordreCroissant)
+            orderByClause = "ORDER BY NOM_ENTREPRISE ASC";
+        else
+            orderByClause = "ORDER BY NOM_ENTREPRISE DESC";
+    } else {
+        qDebug() << "Critère de tri invalide :" <<nomEntreprise;
+        delete model;
+        return nullptr;
+    }
+
+    // Exécution de la requête
+    QString queryString = "SELECT MATRICULE_FISCALE, NOM_ENTREPRISE, ADRESSE, NUMERO_TELEPHONE,DEBUT_CONTRAT, FIN_CONTRAT, SECTEUR_ACTIVITE, INTERET FROM FOOL " + orderByClause;
+    if (!query.exec(queryString)) {
+        qDebug() << "Échec de l'exécution de la requête:" << query.lastError().text();
+        qDebug() << "Erreur Oracle:" << query.lastError().databaseText();
+        delete model;
+        return nullptr;
+    }
+
+    // Définition du modèle avec la requête triée
+    model->setQuery(query);
+
+    return model;
 }
+
 
 QStandardItemModel* Partenaire::recherche(QString str, bool rechercheParMatricule) {
     QSqlQuery query;

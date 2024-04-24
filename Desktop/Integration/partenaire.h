@@ -53,10 +53,12 @@ public:
     void setCheminImage(QString cheminImage);
     // CRUD methods
     bool ajouter();
+    QSqlQueryModel*TriPar(QString nomEntreprise, bool ordreCroissant);
+
     bool supprimer(const QString& matriculeFiscale);
     QSqlQueryModel* afficher();
     bool modifierContrat(const QString& matriculeFiscale, const QString& nouveauNomEntreprise, const QString& nouvelleAdresse,const QString& nouveauNumeroTelephone);
-    QSqlQueryModel *TriPar(QString nomEntreprise);
+    /*QSqlQueryModel *TriPar(QString nomEntreprise);*/
     /*QStandardItemModel* recherche_MATRICULE_FISCALE(QString str);*/
      QStandardItemModel* recherche(QString str, bool rechercheParMatricule);
     QString cheminImage;

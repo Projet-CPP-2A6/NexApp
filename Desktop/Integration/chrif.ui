@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>interface</class>
- <widget class="QDialog" name="interface">
+ <class>chrif</class>
+ <widget class="QDialog" name="chrif">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1365</width>
-    <height>656</height>
+    <width>1326</width>
+    <height>766</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
+     <x>-20</x>
+     <y>-20</y>
      <width>281</width>
      <height>791</height>
     </rect>
@@ -190,10 +190,10 @@ color: rgb(59, 85, 109);</string>
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>10</y>
+     <x>270</x>
+     <y>0</y>
      <width>1101</width>
-     <height>651</height>
+     <height>751</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -360,29 +360,6 @@ background-color: rgb(255, 255, 255);</string>
      <string>Tri</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_15">
-    <property name="geometry">
-     <rect>
-      <x>890</x>
-      <y>580</y>
-      <width>171</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Showcard Gothic</family>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(59, 85, 109);
-background-color: rgb(255, 255, 255);</string>
-    </property>
-    <property name="text">
-     <string>ChatBot</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
@@ -441,65 +418,6 @@ background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>Statistiques </string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_17">
-    <property name="geometry">
-     <rect>
-      <x>990</x>
-      <y>10</y>
-      <width>61</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>../../../Pictures/png-transparent-red-bell-notification-thumbnail.png</normaloff>../../../Pictures/png-transparent-red-bell-notification-thumbnail.png</iconset>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="radioButton">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>80</y>
-      <width>131</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Segoe Print</family>
-      <pointsize>10</pointsize>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>ordre croissant</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="radioButton_2">
-    <property name="geometry">
-     <rect>
-      <x>860</x>
-      <y>80</y>
-      <width>141</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Segoe Print</family>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>ordre decroissant</string>
     </property>
    </widget>
   </widget>

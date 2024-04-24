@@ -28,7 +28,6 @@
 #include <QDebug>
 
 
-
 interface::interface(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::interface)
@@ -149,17 +148,16 @@ void interface::on_pushButton_12_clicked()
 
 void interface::on_pushButton_13_clicked()
 {
-    // Créez une instance de la classe partenaire
     Partenaire partenaire;
 
-    // Appeler la fonction TriPar pour obtenir le modèle de requête SQL trié
-    QSqlQueryModel* model = partenaire.TriPar("NOM_ENTREPRISE");
+    // Appeler la fonction TriPar pour obtenir le modèle de requête SQL trié par ordre croissant
+    QSqlQueryModel* model = partenaire.TriPar("NOM_ENTREPRISE", true);
 
     if (model) {
-        // Afficher le modèle de requête SQL dans le QTableView
+        // Set the model to the QTableView
         ui->listEmployetableView->setModel(model);
     } else {
-        // Afficher un message d'erreur si le modèle est nul
+        // Display error message if model is null
         QMessageBox::warning(this, "Erreur", "Impossible de trier les données.");
     }
 
@@ -252,15 +250,38 @@ void interface::showNotification() {
             QString message = QString("Entreprise: %1\nDate de fin du contrat: %2").arg(entreprise).arg(dateFinContratStr);
             trayIcon.showMessage("Nouvelle notification", message, QSystemTrayIcon::Information, 5000);
 
-            /*QMenu *menu = new QMenu();*/
-            /*menu->addAction("Bonjour");
-            menu->addAction("Quitter");*/
-            /*trayIcon.setContextMenu(menu);*/
         }
+    }
+
+}
+
+
+
+void interface::on_radioButton_toggled(bool checked)
+{
+    Partenaire partenaire; // Création de l'objet Partenaire
+
+    if (checked) {
+        // Appel de TriPar avec l'ordre croissant
+        QSqlQueryModel* model = partenaire.TriPar("NOM_ENTREPRISE", true); // Pour un tri croissant
+     ui->listEmployetableView->setModel(model);
+        // Utilisez le modèle retourné pour mettre à jour votre vue
+        // Par exemple, modelView->setModel(model);
     }
 }
 
 
 
+void interface::on_radioButton_2_toggled(bool checked)
+{
+    Partenaire partenaire; // Création de l'objet Partenaire
 
+    if (checked) {
+        // Appel de TriPar avec l'ordre décroissant
+        QSqlQueryModel* model = partenaire.TriPar("NOM_ENTREPRISE", false); // Pour un tri décroissant
+     ui->listEmployetableView->setModel(model);
+        // Utilisez le modèle retourné pour mettre à jour votre vue
+        // Par exemple, modelView->setModel(model);
+    }
+}
 
