@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>png-transparent-red-bell-notification-thumbnail.png</file>
+    </qresource>
+</RCC>
