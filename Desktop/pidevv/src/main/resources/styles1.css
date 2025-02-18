@@ -1,0 +1,66 @@
+/* Style général pour l'AnchorPane */
+AnchorPane {
+    -fx-background-color: #f4f4f4;
+}
+
+/* Style pour la barre latérale */
+.sidebar {
+    -fx-background-color: #1c2833;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+/* Style pour le titre de la barre latérale */
+.sidebar-title {
+    -fx-font-size: 24px;
+    -fx-text-fill: #ecf0f1;
+    -fx-font-weight: bold;
+}
+
+/* Style pour la ListView */
+.custom-list-view {
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.custom-list-view .list-cell {
+    -fx-padding: 10;
+    -fx-background-color: transparent;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 0 0 1 0;
+}
+
+.custom-list-view .list-cell:filled:selected {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+/* Style pour les Pane contenant les sponsors */
+.sponsor-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-padding: 10;
+    -fx-border-color: lightgray;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+}
+
+/* Style pour les HBox dans les Pane */
+.sponsor-hbox {
+    -fx-spacing: 10;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* Style pour les Label dans les HBox */
+.sponsor-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #2c3e50;
+}
+
+.sponsor-label-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1c2833;
+}
