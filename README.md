@@ -55,7 +55,7 @@ Les compagnies d'assurance doivent faire face à de nombreux défis :
 
 | Connexion | Gestion des clients |
 |:---:|:---:|
-| ![Login](docs/screenshots/login.png) | ![Clients](docs/screenshots/clients.png) |
+| ![Login](login.png) | ![Clients](docs/screenshots/clients.png) |
 
 | Statistiques | Chatbot IA |
 |:---:|:---:|
