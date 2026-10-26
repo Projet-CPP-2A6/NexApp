@@ -126,4 +126,4 @@ NexApp/
 
 ## 📄 Licence
 
-Projet académique – [Nom de l'établissement]. Tous droits réservés à l'équipe NexApp.
+Projet académique – Esprit. Tous droits réservés à l'équipe NexApp.
