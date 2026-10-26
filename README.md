@@ -2,7 +2,7 @@
 # 🛡️ Gcorp – Application de gestion d'assurance
 
 > Application de bureau développée en **C++ / Qt** pour centraliser et simplifier la gestion d'une compagnie d'assurance.
-> Projet réalisé par l'équipe **NexApp** (*Nexus Approach Team*) – [Nom de l'établissement], 2ème année, 2023/2024.
+> Projet réalisé par l'équipe **NexApp** (*Nexus Approach Team*) – Esprit , 2ème année, 2023/2024.
 
 ![C++](https://img.shields.io/badge/C++-17-blue?logo=cplusplus)
 ![Qt](https://img.shields.io/badge/Qt-Widgets-41CD52?logo=qt)
