@@ -59,7 +59,7 @@ Les compagnies d'assurance doivent faire face à de nombreux défis :
 
 | Statistiques | Chatbot IA |
 |:---:|:---:|
-| ![Stats](docs/screenshots/statistiques.png) | ![Chat](docs/screenshots/chatbot.png) |
+| ![Stats](statistiques.png)  | ![Chat](docs/screenshots/chatbot.png) |
 
 ---
 
